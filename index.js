@@ -21,10 +21,11 @@ module.exports = async function start(params = {}) {
   }
 
   const response = await got(`https://is.gd/create.php?${qs.stringify(props)}`)
+  const body = JSON.parse(response.body)
 
   if (params) {
-    return response.body.shorturl
+    return body
   }
 
-  return console.log(response.body.shorturl) // eslint-disable-line
+  return console.log(body) // eslint-disable-line
 }
