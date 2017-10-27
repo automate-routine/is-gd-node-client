@@ -3,24 +3,28 @@ const inquirer = require('inquirer')
 const got = require('got')
 const qs = require('qs')
 
-module.exports = async function start() {
-  const { url } = await inquirer.prompt([{
+module.exports = async function start(params = {}) {
+  const { url } = params || await inquirer.prompt([{
     name: 'url',
     message: 'Get me the url',
   }])
 
-  const { shorturl } = await inquirer.prompt([{
+  const { shorturl } = params || await inquirer.prompt([{
     name: 'shorturl',
     message: 'Tell me short url (optional)',
   }])
 
-  const params = { format: 'json', url }
+  const props = { format: 'json', url }
 
   if (shorturl) {
-    params.shorturl = shorturl
+    props.shorturl = shorturl
   }
 
-  const response = await got(`https://is.gd/create.php?${qs.stringify(params)}`)
+  const response = await got(`https://is.gd/create.php?${qs.stringify(props)}`)
 
-  console.log(response.body.shorturl) // eslint-disable-line
+  if (params) {
+    return response.body.shorturl
+  }
+
+  return console.log(response.body.shorturl) // eslint-disable-line
 }
