@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const inquirer = require('inquirer')
 const got = require('got')
 const qs = require('qs')
@@ -21,5 +22,5 @@ module.exports = async function start() {
 
   const response = await got(`https://is.gd/create.php?${qs.stringify(params)}`)
 
-  console.log(response.body.shorturl)
+  console.log(response.body.shorturl) // eslint-disable-line
 }
