@@ -1,0 +1,34 @@
+{
+  "name": "@isnifer/is-gd-node-client",
+  "version": "1.0.0",
+  "description": "Node.js wrapper for is.gd url shortener",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automate-routine/is-gd-node-client.git"
+  },
+  "keywords": [
+    "is.gd"
+  ],
+  "author": "Anton Kuznetsov <isnifer@gmail.com> (https://github.com/isnifer)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/automate-routine/is-gd-node-client/issues"
+  },
+  "homepage": "https://github.com/automate-routine/is-gd-node-client#readme",
+  "dependencies": {
+    "got": "^7.1.0",
+    "inquirer": "^3.3.0",
+    "qs": "^6.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-tipsi": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "tipsi"
+  }
+}
